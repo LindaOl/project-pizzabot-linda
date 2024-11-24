@@ -21,6 +21,7 @@ if (customerName != null) {
 const foodChoice = prompt("Please, choose one of the following choices by typing it's number in the field:\n1. Pizza\n2. Salads\n3. Kebab\n4. Nuggets");
 
 let choiceMade = parseInt(foodChoice);
+let finalOrder = "";
 
 let food = "";
 
@@ -45,33 +46,36 @@ console.log(food);
 // Step 3 - Subtype choice
 // Your code goes here
 
-
-//prompt fopr alternativ needs to be a variable
-
-
 // pizza sub menu
 let pizzaMenu = "";
+let pizzaName = "";
 
 if (food === "pizza") {
   pizzaMenu = prompt("Please, choose one of the following choices by typing it's number in the field:\n1. Vesuvio\n2. Hawaii\n3. Pepperoni\n4. Vegetarian");
   let chosenPizza = parseInt(pizzaMenu);
+
   if (chosenPizza === 1) {
     alert("You have chosen Vesuvio. Click to continue.");
+    pizzaName = "Vesuvio";
   } else if (chosenPizza === 2) {
     alert("You have chosen Hawaii. Click to continue.");
+    pizzaName = "Hawaii";
   } else if (chosenPizza === 3) {
     alert("You have chosen Pepperoni. Click to continue.");
+    pizzaName = "Pepperoni";
   } else if (chosenPizza === 4) {
     alert("You have chosen Vegetarian. Click to continue.");
+    pizzaName = "Vegetarian";
   } else {
-    alert("An error has occured. Refresh the page and try again.CHOSENPIZZA");
+    alert("An error has occured. Refresh the page and try again.");
   };
+
 };
+finalOrder = pizzaName;
+console.log(finalOrder);
 
 
-
-
-//Salad submenu
+//Salad sub menu
 let saladMenu = "";
 
 if (food === "salad") {
@@ -126,6 +130,19 @@ if (food === "nuggets") {
 
 // Step 4 - Age
 // Your code goes here
+let portionSize = "";
+let getAge = prompt("Pleace enter your age");
+
+const age = parseInt(getAge);
+if (age <= 12) {
+  portionSize = "small";
+} else {
+  portionSize = "large";
+};
+
+
+alert("Your final order is a " + portionSize + " " + finalOrder);
+
 
 // Step 5 - Order confirmation
 // Your code goes here
