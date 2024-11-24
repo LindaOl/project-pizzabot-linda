@@ -40,8 +40,6 @@ if (choiceMade === 1) {
   alert(`An error has occured. Refresh the page and try again.`);
 };
 
-console.log(food);
-
 // Step 3 - Subtype choice
 // Your code goes here
 
@@ -70,7 +68,6 @@ if (food === "pizza") {
   };
 
 };
-
 
 
 //Salad sub menu
@@ -102,13 +99,13 @@ if (food === "kebab") {
   kebabMenu = prompt(`Please, choose one of the following choices by typing it's number in the field:\n1. Kebab in pita\n2. Kebab salad\n3. Kebab roll`);
   let chosenKebab = parseInt(kebabMenu);
   if (chosenKebab === 1) {
-    alert(`You have chosen kebab in pita. Click to continue.`);
+    alert(`You have chosen Kebab in pita. Click to continue.`);
     orderName = "Kebab in pita";
   } else if (chosenKebab === 2) {
-    alert(`You have chosen kebab salad. Click to continue.`);
+    alert(`You have chosen Kebab salad. Click to continue.`);
     orderName = "Kebab salad";
   } else if (chosenKebab === 3) {
-    alert(`You have chosen kebab roll. Click to continue.`);
+    alert(`You have chosen Kebab roll. Click to continue.`);
     orderName = "Kebab roll";
   } else {
     alert(`Invalid input. Refresh the page to start over.`);
@@ -120,22 +117,21 @@ if (food === "kebab") {
 let nuggetsMenu = "";
 
 if (food === "nuggets") {
-  nuggetsMenu = prompt(`Please chose if you want nuggets wit or without fries, by typing in the corresponding number:\n1. Without fries\n2. With frieds`);
+  nuggetsMenu = prompt(`Please chose if you want nuggets wit or without fries, by typing in the corresponding number:\n1. Without fries\n2. With fries`);
   let chosennuggets = parseInt(nuggetsMenu);
   if (chosennuggets === 1) {
-    alert(`You have chosen nuggets without fries. Click to continue.`);
-    orderName = "Nuggets";
+    alert(`You have chosen Nuggets without fries. Click to continue.`);
+    orderName = "Nuggets without fries";
   } else if (chosennuggets === 2) {
-    alert(`You have chosen nuggets with fries. Click to continue.`);
+    alert(`You have chosen Nuggets with fries. Click to continue.`);
     orderName = "Nuggets with fries";
   } else {
     alert(`Invalid input. Refresh the page to start over.`);
   };
 };
 
-
+//the exact dish that was chosen
 finalOrder = orderName;
-console.log(finalOrder);
 
 
 // Step 4 - Age
@@ -149,8 +145,6 @@ if (age <= 12) {
 } else {
   portionSize = "large";
 };
-
-
 
 // Step 5 - Order confirmation
 // Your code goes here
@@ -190,9 +184,9 @@ if (finalOrder === "Vesuvio" && portionSize === "large") {
   price = 125;
 } else if (finalOrder === "Kebab roll" && portionSize === "small") {
   price = 125 - smallPrice;
-} else if (finalOrder === "Nuggets" && portionSize === "large") {
+} else if (finalOrder === "Nuggets without fries" && portionSize === "large") {
   price = 100;
-} else if (finalOrder === "Nuggets" && portionSize === "small") {
+} else if (finalOrder === "Nuggets without fries" && portionSize === "small") {
   price = 80;
 } else if (finalOrder === "Nuggets with fries" && portionSize === "large") {
   price = 120;
@@ -200,7 +194,7 @@ if (finalOrder === "Vesuvio" && portionSize === "large") {
   price = 100;
 } else {
   alert(`There has been an error. Refresh and try again.`)
-}
+};
 
 const checkOut = prompt(`Your final order is a ${portionSize} ${finalOrder}. That will be ${price} sek. Make your choice to continue.\n1. Yes\n2. No`);
 
@@ -209,4 +203,4 @@ if (finishOrder === 1) {
   alert(`Thank you for your order! Your delicious meal will be prepared. See you soon!`);
 } else {
   alert(`You chose to cancel your order. Refresh the page to start over.`);
-}
+};
