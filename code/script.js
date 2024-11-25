@@ -143,16 +143,21 @@ finalOrder = orderName;
 // Your code goes here
 let portionSize = "";
 
-const age = parseInt(prompt(`Please enter your age and we will adjust the portion size`));
+if (errorOccurred === false) {
+  const age = parseInt(prompt(`Please enter your age and we will adjust the portion size`));
 
-if (age <= 12) {
-  portionSize = "small";
-} else if (age > 12) {
-  portionSize = "large";
-} else if (isNaN(age) || age === "") {
-  errorOccurred = true;
+  if (isNaN(age) || age === "" || age < 0) {
+    errorOccurred = true;
+    handlesError();
+  } else if (age <= 12) {
+    portionSize = "small";
+  } else if (age > 12) {
+    portionSize = "large";
+  }
 };
-handlesError();
+
+
+
 
 // Step 5 - Order confirmation
 // Your code goes here
@@ -201,21 +206,25 @@ if (finalOrder === "Vesuvio" && portionSize === "large") {
   price = 120;
 } else if (finalOrder === "Nuggets with fries" && portionSize === "small") {
   price = 100;
-} else if (finalOrder === "" || portionSize === "") {
-  errorOccurred = true;
 };
-handlesError();
 
 
-const checkOut = prompt(`Your final order is a ${portionSize} ${finalOrder}. That will be ${price} sek. Make your choice to continue.\n1. Yes\n2. No`);
+let checkOut = "";
+if (errorOccurred === false) {
+  checkOut = prompt(`Your final order is a ${portionSize} ${finalOrder}. That will be ${price} sek. Do you want to place your order? \n1. Yes\n2. No`);
+};
 
 let finishOrder = parseInt(checkOut);
-if (finishOrder === 1) {
-  alert(`Thank you for your order! Your delicious meal will be prepared. See you soon!`);
-} else if (finishOrder === 2) {
-  alert(`You chose to cancel your order. To restart you can refresh the page.`);
-} else {
-  errorOccurred = true;
+
+if (errorOccurred === false) {
+  if (finishOrder === 1) {
+    alert(`Thank you for your order! Your delicious meal will be prepared. See you soon!`);
+  } else if (finishOrder === 2) {
+    alert(`You chose to cancel your order. To restart you can refresh the page.`);
+  } else if (finishOrder !== 1 || finishOrder !== 2) {
+    errorOccurred = true;
+    handlesError();
+  }
 };
 
-handlesError();
+
