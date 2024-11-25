@@ -1,10 +1,24 @@
 # Pizzabot
 
-Replace this readme with your own information about the project. You can include things like:
+## Project Description
+- Make a pizzabot, meaning a site where you can order food from a prompted menu
+- practice if and if else statements
 
-- Brief description of the assignment
-- How you approached the task, what tools and techniques you used, and how you planned it
-- If you had more time, what would be next?
+## My Approach
+- Tested Technigos example to get an idea of what o do.
+- Looked at the pre-added code from Technigo and figured out how the alert and prompt worked, by using google and trying it out.
+- Made my first prompt and following alert for the customer name
+- Planned out how to start the bot, if i wanted more seperated if statements or if nested if statements would work
+- Had to google how to make line breaks inside of a prompt
+- Started with the first part og the ordering process, and coded the main choice of food type. Moved on once that was working.
+- Struggled a bit how to proceed but after some offline pondering and some trying out to code in a few ways I l anded on how I wanted to it.
+- Coded and made the bot work step by step.
+- Checked for possible consistancy faults with semicolons and usage of symbols
+- Noticed that error messages was showing when they wheren't supposed to, and had to deal with that issue.
+- Ended up making a function for errors and for every step check for errors before continuing.
+
+## What Would I Work More On
+- I've understood that usings switch statements could have been a good way to code this pizzabot, so might have tried to learn how to do that if I was to continue working on it.
 
 ## View it live
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+[Website](https://technigo-pizzabot.netlify.app/)

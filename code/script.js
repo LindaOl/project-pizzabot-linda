@@ -1,5 +1,17 @@
 // Start here
 
+//to flag for errors
+let errorOccurred = false;
+
+function handlesError() {
+  if (errorOccurred === true) {
+    alert(`An error has occured. Please refresh and try again`);
+    return;
+  }
+};
+
+
+
 // Step 1 - Welcome and introduction
 // Your code goes here
 alert(
@@ -9,11 +21,12 @@ alert(
 const customerName = prompt(`Pleace enter your name`);
 
 if (customerName != null) {
-  alert(`Welcome ${customerName} ! Please continue to make your order.`)
+  alert(`Welcome ${customerName} ! Please continue to make your order.`);
 } else {
-  alert(`An error has occured. Refresh the page.`)
+  errorOccurred = true;
 };
 
+handlesError();
 
 // Step 2 - Food choice
 // Your code goes here
@@ -21,8 +34,8 @@ const foodChoice = prompt(`Please, choose one of the following choices by typing
 
 let choiceMade = parseInt(foodChoice);
 let finalOrder = "";
-
 let food = "";
+
 
 if (choiceMade === 1) {
   alert(`You have chosen pizza. Click ok to choose what pizza.`);
@@ -37,8 +50,10 @@ if (choiceMade === 1) {
   alert(`You have chosen Nuggets. click ok to continue.`);
   food = "nuggets";
 } else {
-  alert(`An error has occured. Refresh the page and try again.`);
+  errorOccurred = true;
 };
+
+handlesError();
 
 // Step 3 - Subtype choice
 // Your code goes here
@@ -52,21 +67,14 @@ if (food === "pizza") {
   let chosenPizza = parseInt(pizzaMenu);
 
   if (chosenPizza === 1) {
-    alert(`You have chosen Vesuvio. Click to continue.`);
     orderName = "Vesuvio";
   } else if (chosenPizza === 2) {
-    alert(`You have chosen Hawaii. Click to continue.`);
     orderName = "Hawaii";
   } else if (chosenPizza === 3) {
-    alert(`You have chosen Pepperoni. Click to continue.`);
     orderName = "Pepperoni";
   } else if (chosenPizza === 4) {
-    alert(`You have chosen Vegetarian. Click to continue.`);
     orderName = "Vegetarian";
-  } else {
-    alert(`An error has occured. Refresh the page and try again.`);
-  };
-
+  }
 };
 
 
@@ -76,18 +84,14 @@ let saladMenu = "";
 if (food === "salad") {
   saladMenu = prompt(`Please, choose one of the following choices by typing it's number in the field:\n1. Ceasar salad\n2. Waldorfsalad\n3. Chicken Curry`);
   let chosenSalad = parseInt(saladMenu);
+
   if (chosenSalad === 1) {
-    alert(`You have chosen Ceasar salad. Click to continue.`);
     orderName = "Ceasar salad";
   } else if (chosenSalad === 2) {
-    alert(`You have chosen Waldorfsalad. Click to continue.`);
     orderName = "Waldorfsalad";
   } else if (chosenSalad === 3) {
-    alert(`You have chosen Chicken Curry. Click to continue.`);
     orderName = "Chicken Curry";
-  } else {
-    alert(`Invalid input. Refresh the page to start over.`);
-  };
+  }
 };
 
 
@@ -98,18 +102,14 @@ let kebabMenu = "";
 if (food === "kebab") {
   kebabMenu = prompt(`Please, choose one of the following choices by typing it's number in the field:\n1. Kebab in pita\n2. Kebab salad\n3. Kebab roll`);
   let chosenKebab = parseInt(kebabMenu);
+
   if (chosenKebab === 1) {
-    alert(`You have chosen Kebab in pita. Click to continue.`);
     orderName = "Kebab in pita";
   } else if (chosenKebab === 2) {
-    alert(`You have chosen Kebab salad. Click to continue.`);
     orderName = "Kebab salad";
   } else if (chosenKebab === 3) {
-    alert(`You have chosen Kebab roll. Click to continue.`);
     orderName = "Kebab roll";
-  } else {
-    alert(`Invalid input. Refresh the page to start over.`);
-  };
+  }
 };
 
 
@@ -119,37 +119,46 @@ let nuggetsMenu = "";
 if (food === "nuggets") {
   nuggetsMenu = prompt(`Please chose if you want nuggets wit or without fries, by typing in the corresponding number:\n1. Without fries\n2. With fries`);
   let chosennuggets = parseInt(nuggetsMenu);
+
   if (chosennuggets === 1) {
-    alert(`You have chosen Nuggets without fries. Click to continue.`);
     orderName = "Nuggets without fries";
   } else if (chosennuggets === 2) {
-    alert(`You have chosen Nuggets with fries. Click to continue.`);
     orderName = "Nuggets with fries";
-  } else {
-    alert(`Invalid input. Refresh the page to start over.`);
-  };
+  }
 };
 
-//the exact dish that was chosen
+if (orderName === "") {
+  errorOccurred = true;
+  handlesError();
+} else {
+  alert(`You have chosen ${orderName}. Click to continue.`);
+};
+
+
+//the exact dish that was chosen is stored in this variable
 finalOrder = orderName;
 
 
 // Step 4 - Age
 // Your code goes here
 let portionSize = "";
-let getAge = prompt(`Pleace enter your age and we will adjust the portions size`);
 
-const age = parseInt(getAge);
+const age = parseInt(prompt(`Please enter your age and we will adjust the portion size`));
+
 if (age <= 12) {
   portionSize = "small";
-} else {
+} else if (age > 12) {
   portionSize = "large";
+} else if (isNaN(age) || age === "") {
+  errorOccurred = true;
 };
+handlesError();
 
 // Step 5 - Order confirmation
 // Your code goes here
 let price = 0;
 let smallPrice = 10;
+
 
 //Price list for every item and it's size (small/large)
 if (finalOrder === "Vesuvio" && portionSize === "large") {
@@ -192,15 +201,21 @@ if (finalOrder === "Vesuvio" && portionSize === "large") {
   price = 120;
 } else if (finalOrder === "Nuggets with fries" && portionSize === "small") {
   price = 100;
-} else {
-  alert(`There has been an error. Refresh and try again.`)
+} else if (finalOrder === "" || portionSize === "") {
+  errorOccurred = true;
 };
+handlesError();
+
 
 const checkOut = prompt(`Your final order is a ${portionSize} ${finalOrder}. That will be ${price} sek. Make your choice to continue.\n1. Yes\n2. No`);
 
 let finishOrder = parseInt(checkOut);
 if (finishOrder === 1) {
   alert(`Thank you for your order! Your delicious meal will be prepared. See you soon!`);
+} else if (finishOrder === 2) {
+  alert(`You chose to cancel your order. To restart you can refresh the page.`);
 } else {
-  alert(`You chose to cancel your order. Refresh the page to start over.`);
+  errorOccurred = true;
 };
+
+handlesError();
