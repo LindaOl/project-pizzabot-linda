@@ -220,7 +220,7 @@ if (errorOccurred === false) {
   if (finishOrder === 1) {
     alert(`Thank you for your order! Your delicious meal will be prepared. See you soon!`);
   } else if (finishOrder === 2) {
-    alert(`You chose to cancel your order. To restart you can refresh the page.`);
+    alert(`Your order has been cancelled. Please come again!\nIf you wish to restart the process you can refresh the page.`);
   } else if (finishOrder !== 1 || finishOrder !== 2) {
     errorOccurred = true;
     handlesError();
