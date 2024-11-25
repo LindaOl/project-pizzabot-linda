@@ -19,6 +19,7 @@
 
 ## What Would I Work More On
 - I've understood that usings switch statements could have been a good way to code this pizzabot, so might have tried to learn how to do that if I was to continue working on it.
+- I would probably also have chosen to ask the customer if they wanted small or large meal instead of asking for their age, so they can make that choice regardless of age. But the task wanted an age prompt so I made one.
 
 ## View it live
 [Website](https://technigo-pizzabot.netlify.app/)
