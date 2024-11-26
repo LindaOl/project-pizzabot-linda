@@ -3,7 +3,7 @@
 //to flag for errors
 let errorOccurred = false;
 
-function handlesError() {
+const handleError = () => {
   if (errorOccurred === true) {
     alert(`An error has occured. Please refresh and try again`);
     return;
@@ -26,7 +26,7 @@ if (customerName != null) {
   errorOccurred = true;
 };
 
-handlesError();
+handleError();
 
 // Step 2 - Food choice
 // Your code goes here
@@ -51,9 +51,9 @@ if (choiceMade === 1) {
   food = "nuggets";
 } else {
   errorOccurred = true;
+  handleError();
 };
 
-handlesError();
 
 // Step 3 - Subtype choice
 // Your code goes here
@@ -118,20 +118,23 @@ let nuggetsMenu = "";
 
 if (food === "nuggets") {
   nuggetsMenu = prompt(`Please chose if you want nuggets wit or without fries, by typing in the corresponding number:\n1. Without fries\n2. With fries`);
-  let chosennuggets = parseInt(nuggetsMenu);
+  let chosenNuggets = parseInt(nuggetsMenu);
 
-  if (chosennuggets === 1) {
+  if (chosenNuggets === 1) {
     orderName = "Nuggets without fries";
-  } else if (chosennuggets === 2) {
+  } else if (chosenNuggets === 2) {
     orderName = "Nuggets with fries";
   }
 };
 
-if (orderName === "") {
-  errorOccurred = true;
-  handlesError();
-} else {
-  alert(`You have chosen ${orderName}. Click to continue.`);
+
+if (errorOccurred === false) {
+  if (orderName === "") {
+    errorOccurred = true;
+    handleError();
+  } else {
+    alert(`You have chosen ${orderName}. Click to continue.`);
+  }
 };
 
 
@@ -148,7 +151,7 @@ if (errorOccurred === false) {
 
   if (isNaN(age) || age === "" || age < 0) {
     errorOccurred = true;
-    handlesError();
+    handleError();
   } else if (age <= 12) {
     portionSize = "small";
   } else if (age > 12) {
@@ -220,10 +223,10 @@ if (errorOccurred === false) {
   if (finishOrder === 1) {
     alert(`Thank you for your order! Your delicious meal will be prepared. See you soon!`);
   } else if (finishOrder === 2) {
-    alert(`Your order has been cancelled. Please come again!\nIf you wish to restart the process you can refresh the page.`);
+    alert(`Your order has been cancelled. Please come again! If you wish to restart the process you can refresh the page.`);
   } else if (finishOrder !== 1 || finishOrder !== 2) {
     errorOccurred = true;
-    handlesError();
+    handleError();
   }
 };
 
