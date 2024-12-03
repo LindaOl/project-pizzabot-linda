@@ -16,7 +16,7 @@
 - Checked for possible consistancy faults with semicolons and usage of symbols
 - Noticed that error messages was showing when they wheren't supposed to, and had to deal with that issue.
 - Ended up making a function for errors and for every step check for errors before continuing.
-- Remade my code piece by piece to make and learn switch statements
+- Remade my code piece by piece to make and learn switch statements, saved in the switch.js file
 
 ## What Would I Work More On Or Change
 - I would probably also have chosen to ask the customer if they wanted small or large meal instead of asking for their age, so they can make that choice regardless of age. But the task wanted an age prompt so I made one.
